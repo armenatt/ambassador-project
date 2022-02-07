@@ -4,10 +4,12 @@ services:
     build: .
     ports:
       - 8000:8000
-    volumes:
-      - /host_mnt/c/projects/laravelambassador/:/app
+
     depends_on:
       - db
+      - redis
+    volumes:
+      - .:/var/www/html
 
   db:
     image: mysql:8
